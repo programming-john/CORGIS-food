@@ -9,7 +9,7 @@ with open('immigration.json') as immigrants_data:
 
 @app.route("/")
 def render_main():
-    return render_template('home.html')
+    return render_template('index.html')
 
 if __name__=="__main__":
     app.run(debug=False, port=54321)
