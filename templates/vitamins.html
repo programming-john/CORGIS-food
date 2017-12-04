@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="divider">
+  <p class="question">What food's vitamins would you like to know more about?</p>
+  <form action="/go">
+    <select name="vits">
+      {{ Vitamins }}
+    </select>
+    <input type="submit" value="Submit">
+  </form>  
+  {{ info }}  
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="divider">
+  <p class="question">What food's minerals would you like to know more about?</p>
+  <form action="/yargg">
+    <select name="mins">
+      {{ MajorMinerals }}
+    </select>
+    <input type="submit" value="Submit">
+  </form>  
+  {{ info }}  
+</div>
+{% endblock %}

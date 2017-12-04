@@ -5,8 +5,21 @@ font-size: 135%;
 h1{
 text-align: center;
 color: red;
-font-size: 150%;
+font-size: 215%;
 }
 .declare{
 color: blue;
+}
+.question{
+text-align: left;
+font-size: 175%;
+}
+body{
+	background-color: lightblue;
+}
+.navbar-custom{
+	background-color: black;
+}
+.infor{
+	color: black;
 }
