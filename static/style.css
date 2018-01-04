@@ -14,6 +14,7 @@ color: blue;
 .question{
 text-align: left;
 font-size: 175%;
+color: black;
 }
 body{
 	background-color: lightblue;
@@ -24,6 +25,8 @@ body{
 .infor{
 	color: black;
 }
+
 .disclaimer{
 	color: red;
 }
+

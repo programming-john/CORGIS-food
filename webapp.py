@@ -48,12 +48,19 @@ def get_min_fact(name):
 			
 	return fact
 	
+
+def get_vitamins():
+     options = "memes"
+     return options    
+        
+
 @app.route("/")
 def render_main():
     return render_template('index.html')
 
 @app.route("/vitamins")
 def render_stats():
+
     return render_template('vitamins.html', Vitamins = get_food_names())
 
 @app.route("/minerals")
