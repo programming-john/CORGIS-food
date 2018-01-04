@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="/chart">
+    <select name="">
+      {{ Goose }}
+    </select>
+    <input type="submit" value="Submit">
+  </form>  
+  {{ info }}  
+</div>
+<script>
+window.onload = function() {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "Vitamin Break Down"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 240,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+			{y: 79.45, label: "Vitamin A - IU "},
+			{y: 7.31, label: "Vitamin A - RAE"},
+			{y: 7.06, label: "Vitamin B12"},
+			{y: 4.91, label: "Vitamin B6"},
+			{y: 1.26, label: "Vitamin C"},
+			{y: 1.26, label: "Vitamin E"},
+			{y: 1.26, label: "Vitamin K"}
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+{% endblock %}

@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% block body %}
 <div class="divider">
-  <p class="question">What food's minerals would you like to know more about?</p>
+  <p class="question">Mineral Content in Every Day Foods.</p>
+  <p class="disclaimer">In milligrams per every 100 grams. Otherwise, grams.</p>
   <form action="/yargg">
     <select name="mins">
       {{ MajorMinerals }}
