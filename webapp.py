@@ -7,7 +7,10 @@ app = Flask(__name__) #__name__ = "__main__" if this is the file that was run.  
 with open('food.json') as food_data:
         data = json.load(food_data)
 
-
+def get_vitamins():
+     category = ""
+        
+        
 @app.route("/")
 def render_main():
     return render_template('index.html')
