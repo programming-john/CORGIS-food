@@ -8,8 +8,8 @@ with open('food.json') as food_data:
         data = json.load(food_data)
 
 def get_vitamins():
-     category = ""
-        
+     options = "memes"
+     return options    
         
 @app.route("/")
 def render_main():
@@ -17,7 +17,7 @@ def render_main():
 
 @app.route("/vitamins")
 def render_stats():
-    return render_template('vitamins.html')
+    return render_template('vitamins.html', Vitamins = get_vitamins())
 
 @app.route("/minerals")
 def render_minerals():
