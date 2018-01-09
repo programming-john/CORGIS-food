@@ -21,7 +21,7 @@ def get_vit_fact(name):
 	for food in data:
 		if name == food["Description"]:
 			fact += Markup("<p><b>"+ food["Description"] + "</b></p>")
-			fact += Markup("<p>"+"Vitamin A - IU: " + str(food["Data"]["Vitamins"]["Vitamin A - IU"]) + "</p>")
+			fact += Markup("<p>"+"Vitamin A - IU: " + str(food["Data"]["Vitamins"]["Vitamin A - IU"]) +"</p>")
 			fact += Markup("<p>"+"Vitamin A - RAE: " + str(food["Data"]["Vitamins"]["Vitamin A - RAE"])+"</p>")
 			fact += Markup("<p>"+ "Vitamin B12: " + str(food["Data"]["Vitamins"]["Vitamin B12"]) + "</p>")
 			fact += Markup("<p>"+"Vitamin B6: " + str(food["Data"]["Vitamins"]["Vitamin B6"])+"</p>")
@@ -30,6 +30,27 @@ def get_vit_fact(name):
 			fact += Markup("<p>"+"Vitamin K: " + str(food["Data"]["Vitamins"]["Vitamin K"])+"</p>")
 			
 	return fact
+
+
+def get_vitamin_fact(name, type):
+	fact = 0
+	for food in data:
+		if name == food["Description"]:
+			if type == "1":
+				fact += food["Data"]["Vitamins"]["Vitamin A - IU"]
+				fact += food["Data"]["Vitamins"]["Vitamin A - RAE"]
+			if type == "2":
+				fact += food["Data"]["Vitamins"]["Vitamin B6"]
+			if type == "3":
+				fact += food["Data"]["Vitamins"]["Vitamin B12"]
+			if type == "4":
+				fact += food["Data"]["Vitamins"]["Vitamin C"]
+			if type == "5":
+				fact += food["Data"]["Vitamins"]["Vitamin E"]
+			if type == "6":
+				fact += food["Data"]["Vitamins"]["Vitamin K"]
+	return fact
+				
 	
 def get_min_fact(name):
 	fact = ""
@@ -80,6 +101,11 @@ def render_vitamininfo():
 def render_mineralinfo():
     place = request.args['mins']
     return render_template('minerals.html', info = get_min_fact(place), MajorMinerals = get_food_names())
+
+@app.route("/chart", methods=['GET','POST'])
+def render_piechart():
+    place = request.args['pies']
+    return render_template('piechart.html', Goose = get_food_names(), vita = get_vitamin_fact(place, "1"), vitb6 = get_vitamin_fact(place, "2"), vitb12 = get_vitamin_fact(place, "3"), vitc = get_vitamin_fact(place, "4"), vite = get_vitamin_fact(place, "5"), vitk = get_vitamin_fact(place, "6"))
 		
 		
 		

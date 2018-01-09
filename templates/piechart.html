@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
 {% block body %}
   <form action="/chart">
-    <select name="">
+    <select name="pies">
       {{ Goose }}
     </select>
     <input type="submit" value="Submit">
   </form>  
-  {{ info }}  
 </div>
 <script>
 window.onload = function() {
@@ -22,13 +21,12 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		yValueFormatString: "##0.00\"%\"",
 		indexLabel: "{label} {y}",
 		dataPoints: [
-			{y: 79.45, label: "Vitamin A - IU "},
-			{y: 7.31, label: "Vitamin A - RAE"},
-			{y: 7.06, label: "Vitamin B12"},
-			{y: 4.91, label: "Vitamin B6"},
-			{y: 1.26, label: "Vitamin C"},
-			{y: 1.26, label: "Vitamin E"},
-			{y: 1.26, label: "Vitamin K"}
+			{y: {{ vita }}, label: "Vitamin A "},
+			{y: {{ vitb12 }}, label: "Vitamin B12"},
+			{y: {{ vitb6 }}, label: "Vitamin B6"},
+			{y: {{ vitc }}, label: "Vitamin C"},
+			{y: {{ vite }}, label: "Vitamin E"},
+			{y: {{ vitk }}, label: "Vitamin K"}
 		]
 	}]
 });
@@ -36,6 +34,6 @@ chart.render();
 
 }
 </script>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<div id="chartContainer" style="height: 885px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 {% endblock %}
